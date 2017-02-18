@@ -1,0 +1,33 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Don't delete, this is required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'dracula/vim'
+
+
+" All plugins should be declared before this line 
+call vundle#end()
+filetype plugin indent on
+
+color dracula
+syntax on
+
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set et "autoreplace
+
+set wrap "transfer long strings
+
+set ai "auto indents for new lines
+set cin "indents in C-style
+
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
