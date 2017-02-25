@@ -1,4 +1,5 @@
-set nocompatible
+set nocompatible "Disable vi compatibilityi
+filetype on
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,26 +9,93 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'dracula/vim'
-
-
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 " All plugins should be declared before this line 
 call vundle#end()
 filetype plugin indent on
 
-color dracula
-syntax on
+" Settings for NERDTree
+"autocmd vimenter * NERDTree
+""autocmd vimenter * wincmd p
+let NERDTreeHighkightCursorline=1
+""let NERDTreeIgnoer=['.DS_Store']
+let NERDTreeShowLineNumbers=0
+""let NERDTreeMinimalUI=1
+map <silent> <C-n> :NERDTreeFocus<CR>
 
-set tabstop=4
-set shiftwidth=4
+
+" Settings for tagbar
+let g:tagbar_sort=0
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_map_close='<C-m>'
+
+
+" Settings for syntastic plugin
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_error_symbol="✗"
+let g:syntastic_warning_symbol="⚠"
+
+" colorscheme settings
+set t_Co=256
+color dracula
+syntax on 
+set number
+set title
+set cursorline
+
+" Tabs settings
+set tabstop=2
+set shiftwidth=2
+set shiftwidth=2
 set smarttab
+set expandtab
+set autoindent smartindent
+set copyindent
+
+set noerrorbells
+set visualbell
+
+
 set et "autoreplace
 
-set wrap "transfer long strings
+inoremap { {<CR>}<Esc>ko
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
 
+
+
+set wrap "transfer long strings
+set textwidth=80
+set scrolloff=5
+"set formatoptions=qrn1
 set ai "auto indents for new lines
 set cin "indents in C-style
 
+"set path+=**
+
+set wildmenu
+set wildmode=list:longest,full
+
+set showmode
+set showcmd
+set ttyfast
+set ruler
 set showmatch
 set hlsearch
 set incsearch
 set ignorecase
+
+
+
